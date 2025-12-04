@@ -14,9 +14,18 @@ void main() {
     final dto = EmployeeCreateDto(fullName: '', jobTitle: '', country: '', salary: 0);
     expect(
       Validators.createEmployee(dto),
+      isFalse,
+    );
+  });
+
+  test('CreateEmployee() in Validator return true', () async {
+    final dto = EmployeeCreateDto(fullName: 'test', jobTitle: 'dev', country: 'india', salary: 10000);
+    expect(
+      Validators.createEmployee(dto),
       isTrue,
     );
   });
+
   // group('POST /', () {
   //   test('responds with a 400 and {error: Invalid JSON or data}.', () async {
   //     final context = _MockRequestContext();
