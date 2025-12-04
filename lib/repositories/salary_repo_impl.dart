@@ -1,6 +1,7 @@
 import 'package:incubyte_smk/database.dart';
 import 'package:incubyte_smk/dtos/salary_dto.dart';
 import 'package:incubyte_smk/repositories/salary_repo.dart';
+import 'package:incubyte_smk/services/salary_service.dart';
 
 class SalaryRepoImpl extends SalaryRepo {
 
@@ -16,8 +17,10 @@ class SalaryRepoImpl extends SalaryRepo {
       return SalaryDto.empty();
     }
 
-    ///Todo: Refactor this with actual implementation
-    final (deductions, netSalary) = (employee.salary, employee.salary);
+    final (deductions, netSalary) = SalaryService.calculateNetSalary(
+      country: employee.country,
+      gross: employee.salary,
+    );
 
     return SalaryDto(
         employee_id: employee.id,
