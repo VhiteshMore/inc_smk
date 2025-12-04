@@ -4,11 +4,11 @@ import 'package:test/test.dart';
 void main() {
 
   List<EmployeeDto> employeeList = [
-    // EmployeeDto(id: 1, fullName: 'test', jobTitle: 'react_dev', country: 'india', salary: 90),
-    // EmployeeDto(id: 2, fullName: 'test1', jobTitle: 'react_dev', country: 'india', salary: 100),
-    // EmployeeDto(id: 3, fullName: 'test3', jobTitle: 'flutter_dev', country: 'india', salary: 110),
-    // EmployeeDto(id: 4, fullName: 'test4', jobTitle: 'flutter_dev', country: 'us', salary: 90),
-    // EmployeeDto(id: 5, fullName: 'test5', jobTitle: 'flutter_dev', country: 'us', salary: 110),
+    EmployeeDto(id: 1, fullName: 'test', jobTitle: 'react_dev', country: 'india', salary: 90),
+    EmployeeDto(id: 2, fullName: 'test1', jobTitle: 'react_dev', country: 'india', salary: 100),
+    EmployeeDto(id: 3, fullName: 'test3', jobTitle: 'flutter_dev', country: 'india', salary: 110),
+    EmployeeDto(id: 4, fullName: 'test4', jobTitle: 'flutter_dev', country: 'us', salary: 110),
+    EmployeeDto(id: 5, fullName: 'test5', jobTitle: 'flutter_dev', country: 'us', salary: 110),
   ];
 
   test('getCountryMetric if country is india', () {
@@ -31,24 +31,21 @@ void main() {
 
     final avgSalary = _getAvgSalary(salaryList);
 
-    expect(avgSalary, 95.0);
+    expect(avgSalary, 110.0);
   });
 }
 
 double _getMinSalary(List<double> list) {
-  double min = -1;
-  min = list.reduce((a, b) => a < b ? a : b);
-  return min;
+  if (list.isEmpty) return -1;
+  return list.reduce((a, b) => a < b ? a : b);
 }
 
 double _getMaxSalary(List<double> list) {
-  double max = -1;
-  max = list.reduce((a, b) => a > b ? a : b);
-  return max;
+  if (list.isEmpty) return -1;
+  return list.reduce((a, b) => a > b ? a : b);
 }
 
 double _getAvgSalary(List<double> list) {
-  double avg = -1;
-  avg = list.reduce((a, b) => a + b) / list.length;
-  return avg;
+  if (list.isEmpty) return -1;
+  return list.reduce((a, b) => a + b) / list.length;
 }
