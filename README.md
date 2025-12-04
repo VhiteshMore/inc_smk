@@ -1,12 +1,23 @@
-# incubyte_smk
+# INC Salary Management API (Dart + Dart Frog)
 
-[![style: dart frog lint][dart_frog_lint_badge]][dart_frog_lint_link]
-[![License: MIT][license_badge]][license_link]
-[![Powered by Dart Frog](https://img.shields.io/endpoint?url=https://tinyurl.com/dartfrog-badge)](https://dart-frog.dev)
+A production-ready REST API built with **Dart Frog** and **Drift** (type-safe SQLite).
 
-An example application built with dart_frog
+## AI Usage (Transparent)
 
-[dart_frog_lint_badge]: https://img.shields.io/badge/style-dart_frog_lint-1DF9D2.svg
-[dart_frog_lint_link]: https://pub.dev/packages/dart_frog_lint
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license_link]: https://opensource.org/licenses/MIT
+I used **Grok 4** and **Claude 3.5 Sonnet** heavily and intentionally:
+
+- Scaffolded full Dart Frog + Drift project structure
+- Generated failing tests → minimal passing code → refactor loop
+- Used AI to generate type safe drift queries and JSON serialization
+- Asked:
+  > "Write a red/green/refactor dart test for POST /employees using dart_frog_test"  
+  > "Generate drift query for min/max/avg salary by country directly from columns"
+
+This accelerated development ~5x while I retained full architectural control.
+
+## Running
+
+```bash
+dart pub get
+dart run build_runner build --delete-conflicting-outputs
+dart_frog dev
