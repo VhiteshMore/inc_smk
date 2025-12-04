@@ -40,4 +40,7 @@ class EmployeeDto {
   factory EmployeeDto.fromJson(Map<String, dynamic> json) =>
       _$EmployeeDtoFromJson(json);
   Map<String, dynamic> toJson() => _$EmployeeDtoToJson(this);
+
+  factory EmployeeDto.empty() =>
+      EmployeeDto(id: -1, fullName: '', jobTitle: '', country: '', salary: -1);
 }
