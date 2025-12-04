@@ -1,6 +1,6 @@
 import 'package:incubyte_smk/utils/string_utils.dart';
 
-class SalaryService {
+class SalaryUtil {
 
   static (double deductions, double net) calculateNetSalary({
     required String country,
@@ -16,6 +16,21 @@ class SalaryService {
       _ => 0.0,
     };
     return (deductions, gross - deductions);
+  }
+
+  static double getMinSalary(List<double> list) {
+    if (list.isEmpty) return -1;
+    return list.reduce((a, b) => a < b ? a : b);
+  }
+
+  static double getMaxSalary(List<double> list) {
+    if (list.isEmpty) return -1;
+    return list.reduce((a, b) => a > b ? a : b);
+  }
+
+  static double getAvgSalary(List<double> list) {
+    if (list.isEmpty) return -1;
+    return list.reduce((a, b) => a + b) / list.length;
   }
 
 }

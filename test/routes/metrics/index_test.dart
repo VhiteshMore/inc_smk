@@ -1,4 +1,5 @@
 import 'package:incubyte_smk/dtos/employee_dto.dart';
+import 'package:incubyte_smk/utils/salary_util.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -15,9 +16,9 @@ void main() {
 
     final salaryList = employeeList.where((elm) => elm.country == 'india').map((e) => e.salary).toList();
 
-    final minSalary = _getMinSalary(salaryList);
-    final maxSalary = _getMaxSalary(salaryList);
-    final avgSalary = _getAvgSalary(salaryList);
+    final minSalary = SalaryUtil.getMinSalary(salaryList);
+    final maxSalary = SalaryUtil.getMaxSalary(salaryList);
+    final avgSalary = SalaryUtil.getAvgSalary(salaryList);
 
     expect(
       (minSalary, maxSalary, avgSalary),
@@ -29,23 +30,8 @@ void main() {
 
     final salaryList = employeeList.where((elm) => elm.jobTitle == 'flutter_dev').map((e) => e.salary).toList();
 
-    final avgSalary = _getAvgSalary(salaryList);
+    final avgSalary = SalaryUtil.getAvgSalary(salaryList);
 
     expect(avgSalary, 110.0);
   });
-}
-
-double _getMinSalary(List<double> list) {
-  if (list.isEmpty) return -1;
-  return list.reduce((a, b) => a < b ? a : b);
-}
-
-double _getMaxSalary(List<double> list) {
-  if (list.isEmpty) return -1;
-  return list.reduce((a, b) => a > b ? a : b);
-}
-
-double _getAvgSalary(List<double> list) {
-  if (list.isEmpty) return -1;
-  return list.reduce((a, b) => a + b) / list.length;
 }

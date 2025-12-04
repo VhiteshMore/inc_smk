@@ -15,7 +15,7 @@ class EmployeeRepoImpl extends EmployeeRepo {
       final insertedId = await _appDb.into(_appDb.employee).insert(EmployeeCompanion(
         fullName: Value(dto.fullName),
         jobTitle: Value(dto.jobTitle),
-        country: Value(dto.country),
+        country: Value(dto.country.toLowerCase()),
         salary: Value(dto.salary),
       ));
       final employee = await (_appDb.select(_appDb.employee)..where((e) => e.id.equals(insertedId))).getSingle();
@@ -31,7 +31,5 @@ class EmployeeRepoImpl extends EmployeeRepo {
       rethrow;
     }
   }
-
-
 
 }

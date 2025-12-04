@@ -2,6 +2,8 @@ import 'package:get_it/get_it.dart';
 import 'package:incubyte_smk/database.dart';
 import 'package:incubyte_smk/repositories/employee_repo.dart';
 import 'package:incubyte_smk/repositories/employee_repo_impl.dart';
+import 'package:incubyte_smk/repositories/metrics_repo.dart';
+import 'package:incubyte_smk/repositories/metrics_repo_impl.dart';
 import 'package:incubyte_smk/repositories/salary_repo.dart';
 import 'package:incubyte_smk/repositories/salary_repo_impl.dart';
 
@@ -16,5 +18,7 @@ Future<void> injectDependencies() async {
   injector.registerFactory<EmployeeRepo>(() => EmployeeRepoImpl(appDatabase: _appDatabase));
 
   injector.registerFactory<SalaryRepo>(() => SalaryRepoImpl(appDatabase: _appDatabase));
+
+  injector.registerFactory<MetricsRepo>(() => MetricsRepoImpl(appDatabase: _appDatabase));
 
 }

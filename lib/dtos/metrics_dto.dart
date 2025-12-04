@@ -19,6 +19,9 @@ class MetricCountryDto {
   factory MetricCountryDto.fromJson(Map<String, dynamic> json) =>
       _$MetricCountryDtoFromJson(json);
   Map<String, dynamic> toJson() => _$MetricCountryDtoToJson(this);
+
+  factory MetricCountryDto.empty() => MetricCountryDto(country: '', avg_salary: -1, max_salary: -1, min_salary: -1);
+
 }
 
 @JsonSerializable()
@@ -34,5 +37,7 @@ class MetricJobTitleDto {
   factory MetricJobTitleDto.fromJson(Map<String, dynamic> json) =>
       _$MetricJobTitleDtoFromJson(json);
   Map<String, dynamic> toJson() => _$MetricJobTitleDtoToJson(this);
+
+  factory MetricJobTitleDto.empty() => MetricJobTitleDto(job_title: '', avg_salary: -1);
 }
 
