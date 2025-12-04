@@ -6,18 +6,15 @@ class SalaryService {
     required String country,
     required double gross,
   }) {
+    final String parsedCountry = StringUtils.getParseableCountry(country);
 
-    if (country.isEmpty || gross < 0) {
-      return (-1.0, -1.0);
-    }
+    if (parsedCountry.isEmpty || gross < 0) return (-1.0, -1.0);
 
-    double deductions = gross;
-
-    if (country == 'india') {
-      deductions = gross * 0.10;
-    } else if (country == 'united states') {
-      deductions = gross * 0.12;
-    }
+    final deductions = switch (parsedCountry) {
+      'india' => gross * 0.10,
+      'united_states' => gross * 0.12,
+      _ => 0.0,
+    };
     return (deductions, gross - deductions);
   }
 

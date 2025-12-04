@@ -14,7 +14,7 @@ void main() {
 
   test('CalculateSalary if US other 12% deduction', () async {
     expect(
-      SalaryService.calculateNetSalary(country: '', gross: 100),
+      SalaryService.calculateNetSalary(country: 'united states', gross: 100),
       equals((12.0, 88.0)),
     );
   });
@@ -22,7 +22,7 @@ void main() {
   test('CalculateSalary if other then 0% deduction', () async {
     expect(
       SalaryService.calculateNetSalary(country: 'norway', gross: 100),
-      equals((100.0, 0.0)),
+      equals((0.0, 100.0)),
     );
   });
 
