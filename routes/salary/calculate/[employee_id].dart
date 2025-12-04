@@ -1,12 +1,9 @@
 import 'dart:io';
 
 import 'package:dart_frog/dart_frog.dart';
-import 'package:incubyte_smk/dtos/employee_dto.dart';
 import 'package:incubyte_smk/dtos/salary_dto.dart';
-import 'package:incubyte_smk/repositories/employee_repo.dart';
 import 'package:incubyte_smk/repositories/salary_repo.dart';
 import 'package:incubyte_smk/utils/injector.dart';
-import 'package:incubyte_smk/utils/validators.dart';
 
 Future<Response> onRequest(RequestContext context, String idStr) async {
   await injectDependencies();
@@ -27,7 +24,7 @@ Future<Response> _getSalaryDetails(RequestContext context, String employeeId) as
     if (result == SalaryDto.empty()) {
       return Response.json(body: {'error': 'Invalid JSON or data'}, statusCode: 400);
     } else {
-      return Response.json(body: result, statusCode: 201);
+      return Response.json(body: result, statusCode: 200);
     }
   } catch (e) {
     return Response.json(body: {'error': 'Something went wrong'}, statusCode: 400);

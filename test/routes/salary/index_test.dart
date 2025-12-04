@@ -1,7 +1,4 @@
-import 'package:incubyte_smk/dtos/employee_dto.dart';
 import 'package:incubyte_smk/services/salary_service.dart';
-import 'package:incubyte_smk/utils/string_utils.dart';
-import 'package:incubyte_smk/utils/validators.dart';
 import 'package:test/test.dart';
 
 void main() {
