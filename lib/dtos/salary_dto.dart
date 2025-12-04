@@ -21,4 +21,8 @@ class SalaryDto {
   factory SalaryDto.fromJson(Map<String, dynamic> json) =>
       _$SalaryDtoFromJson(json);
   Map<String, dynamic> toJson() => _$SalaryDtoToJson(this);
+
+  factory SalaryDto.empty() =>
+      SalaryDto(employee_id: -1, gross_salary: -1, deductions: -1, net_salary: -1, country: '');
+
 }
