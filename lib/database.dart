@@ -4,7 +4,6 @@ import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:incubyte_smk/utils/constants.dart';
 import 'package:path/path.dart' as p;
-import 'package:path_provider/path_provider.dart';
 
 import 'models/employee.dart';
 
@@ -12,10 +11,16 @@ part 'database.g.dart';
 
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
-    final dbFolder = await getApplicationDocumentsDirectory();
-    final dbFile = File(p.join(dbFolder.path, AppConstants.DB_NAME));
+    final dbFile = File(_defaultPath());
     return NativeDatabase(dbFile);
   });
+}
+
+String _defaultPath() {
+  final dir = Directory.current.path;
+  final dataDir = p.join(dir, 'data');
+  Directory(dataDir).createSync(recursive: true);
+  return p.join(dataDir, AppConstants.DB_NAME);
 }
 
 @DriftDatabase(tables: [Employee])
