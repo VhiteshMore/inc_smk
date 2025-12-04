@@ -1,10 +1,9 @@
 import 'dart:io';
 
 import 'package:dart_frog/dart_frog.dart';
+import 'package:incubyte_smk/routes/index.dart' as route;
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
-
-import '../../routes/index.dart' as route;
 
 class _MockRequestContext extends Mock implements RequestContext {}
 
