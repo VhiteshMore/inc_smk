@@ -1,0 +1,24 @@
+name: incubyte_smk
+description: A new Dart Frog application
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  dart_frog: ^1.1.0
+  drift: ^2.20.0
+  sqlite3_flutter_libs: ^0.5.22
+  path: ^1.9.0
+  path_provider: ^2.1.4
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  build_runner: ^2.4.12
+  dart_frog_lint: ^0.1.0
+  drift_dev: ^2.20.0
+  json_serializable: ^6.8.0
+  test: ^1.25.8
+  mocktail: ^1.0.4
+  dart_frog_test: ^0.1.2
